@@ -12,6 +12,6 @@ function displayArticles(articles) {
     });
 }
 
-$.getJSON("/all", function(data){
+$.getJSON("/", function(data){
     displayArticles(data);
 });
