@@ -38,15 +38,15 @@ app.get("/", function (req, res) {
 // When you visit this route, the server will scrape data from the site and save to mongo
 app.get("/scrape", function (req, res) {
   // First remove the data from the database so it is not duplicated
-  db.scrapedData.remove();
+  db.scrapedData.remove({});
   // Make an axios call to the website
-  axios.get("https://www.nytimes.com").then(function (res) {
+  axios.get("https://www.desiringgod.org").then(function (res) {
     let $ = cheerio.load(res.data);
     let results = [];
     // Loop through each article parent element for the title and link
-    $("article").each(function (i, element) {
+    $("a.card__shadow").each(function (i, element) {
       let title = $(element).find("h2").text();
-      let link = "www.nytimes.com";
+      let link = "www.desiringgod.org";
       link += $(element).find("a").attr("href");
       
       // Insert the new elements into the scraperDB
