@@ -1,9 +1,11 @@
 // Dependencies
 const express = require("express");
+const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
 // Require axios and cheerio for scraping 
 const axios = require("axios");
 const cheerio = require("cheerio");
+
 // Initialize Express
 const app = express();
 app.use(express.static("public"));
