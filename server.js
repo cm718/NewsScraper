@@ -1,18 +1,20 @@
 // Dependencies
 const express = require("express");
-const mongojs = require("mongojs");
+const mongoose = require("mongoose");
 // Require axios and cheerio for scraping 
 const axios = require("axios");
 const cheerio = require("cheerio");
 // Initialize Express
 const app = express();
 app.use(express.static("public"));
-// Database configuration
-const databaseUrl = "scraper";
-const collections = ["scrapedData"];
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 // Hook mongojs configuration to the db variable
-const db = mongojs(databaseUrl, collections);
 
 db.on("error", function (error) {
   console.log("Database Error:", error);
@@ -42,7 +44,7 @@ app.get("/scrape", function (req, res) {
   // Make an axios call to the website
   axios.get("https://www.desiringgod.org").then(function (res) {
     let $ = cheerio.load(res.data);
-    let results = [];
+
     // Loop through each article parent element for the title and link
     $("a.card__shadow").each(function (i, element) {
       let title = $(element).find("h2").text();
