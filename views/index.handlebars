@@ -1,13 +1,15 @@
+<title>Article Scraper</title>
+</head>
 <body class="container">
     <h1>desiring<span class="red">God</span> Articles</h3>
         <div>
-            <button>NEW ARTICLES</button><button>SAVED ARTICLES</button>
+            <button id="scrape">NEW ARTICLES</button><button id="saved">SAVED ARTICLES</button>
         </div>
         <hr>
         <div class="card-list">
             {{#each articles}}
             <button class="card">
-                <a href={{link}} target="_blank">{{title}}</a>
+                <a href={{link}} target="_blank">{{title}}</a> <a id='saveArticle'>Save</a>
             </button>
           {{/each}}
 
