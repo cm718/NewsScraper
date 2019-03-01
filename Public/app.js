@@ -5,16 +5,25 @@ $(document).ready(function () {
 
 });
 
+// scrape the website again and push the data to database on click
+$(document).on('click', '#scrape', () => {
+    $.ajax({
+        method: 'GET',
+        url: `/scrape`
+    }).then(function (data) {
+        console.log(data);
+        document.location.href = '/';
 
-// function displayArticles(articles) {
+    })
+});
 
-//     articles.forEach(article => {
-//         let link = article.link;
-//         const card = `<h1>${link}</h1>`;
-//         $(".card-list").append(card);
-//     });
-// }
+// click event to go to the saved articles page
+$(document).on('click', '#saved', () => {
+    $.ajax({
+        method: 'GET',
+        url: '/saved'
+    }).then(function () {
+        document.location.href = '/saved';
 
-// $.getJSON("/", function (data) {
-//     displayArticles(data);
-// });
+    })
+});
