@@ -58,4 +58,20 @@ module.exports = function (app) {
     });
   });
 
+  // Route to retrieve data from mongo and display it
+  app.get("/saved", function (req, res) {
+    console.log("running to retrieve all the saved articles");
+    // Query the mongodb for my scraped data and return it as json object
+    db.Article.find({saved: true}, function (error, savedArticles) {
+      // Log any errors 
+      if (error) {
+        console.log(error);
+      }
+      // Send the result to the browser
+      else {
+        res.json(savedArticles);
+      }
+    });
+  });
+
 };
