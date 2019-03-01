@@ -1,17 +1,20 @@
-
-function displayArticles(articles) {
-    $("tbody").empty();
-
-    articles.forEach(article => {
-        let href = article.link;
-        const tr = $("<tr>").append(
-            $("<td>").text(article.title),
-            $(`<a href='${href}'>${href}</a>`)
-        );
-        $("tbody").append(tr);
+$(document).ready(function () {
+    $.getJSON('/', function (data) {
+        console.log(data)
     });
-}
 
-$.getJSON("/", function(data){
-    displayArticles(data);
 });
+
+
+// function displayArticles(articles) {
+
+//     articles.forEach(article => {
+//         let link = article.link;
+//         const card = `<h1>${link}</h1>`;
+//         $(".card-list").append(card);
+//     });
+// }
+
+// $.getJSON("/", function (data) {
+//     displayArticles(data);
+// });
