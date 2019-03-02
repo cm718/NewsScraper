@@ -22,3 +22,5 @@ require("./routes/htmlRoutes")(app);
 app.listen(PORT, function () {
   console.log(`App running on port ${PORT}`);
 });
+
+module.exports = app;
