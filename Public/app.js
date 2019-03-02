@@ -18,6 +18,18 @@ $(document).on('click', '#scrape', () => {
 });
 
 // click event to go to the saved articles page
+$('.saveArticle').on('click', function() {
+    $(this).toggleClass("saveButtonColor");
+    // $.ajax({
+    //     method: 'PUT',
+    //     url: '/saved',
+    //     data:data
+    // }).then(function () {
+    //     document.location.href = '/saved';
+
+    // })
+});
+// click event to go to the saved articles page
 $(document).on('click', '#saved', () => {
     $.ajax({
         method: 'GET',
