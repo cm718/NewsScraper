@@ -26,6 +26,12 @@ button {
     border-radius: 5px;
 }
 
+.saveButtonColor {
+    border-color: #fff;
+    color: #fff;
+    background: red;
+}
+
 hr {
     width: 80%;
     margin: 0 auto;
@@ -61,7 +67,7 @@ a {
     text-decoration: none;
 }
 
-#saveArticle {
+.saveArticle {
     border: solid white 1px;
     border-radius: 3px;
     padding-top: 10px;
