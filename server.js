@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Set up middleware
-app.use(express.static("public"));
+app.use(express.static("Public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -22,5 +22,3 @@ require("./routes/htmlRoutes")(app);
 app.listen(PORT, function () {
   console.log(`App running on port ${PORT}`);
 });
-
-module.exports = app;
