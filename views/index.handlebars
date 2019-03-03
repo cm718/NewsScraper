@@ -7,7 +7,17 @@
         <div class="card-list">
             {{#each articles}}
             <button class="card">
-                <a href={{link}} target="_blank">{{title}}</a> <a class='saveArticle'>Save</a>
+                <a href={{link}} target="_blank">{{title}}</a> 
+  
+                {{#if saved}}
+                
+                <a data-id={{_id}} class="saved">Unsave</a>
+                
+                {{else}}
+                <a data-id={{_id}} class="notSaved">Save</a>
+
+                {{/if}}
+
             </button>
           {{/each}}
 
