@@ -13,7 +13,6 @@ module.exports = function (app) {
         articles: dbArticle
       });
     })
-
   });
 
   app.get('/saved', function (req, res) {
@@ -26,9 +25,8 @@ module.exports = function (app) {
       console.log(savedArticle)
       // res.send(savedArticle)
       res.render('saved', {
-        articles: savedArticle
+        savedArticles: savedArticle
       });
     })
-
   });
 }
