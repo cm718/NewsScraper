@@ -1,5 +1,4 @@
 // Setting up the routes to scrape and retrieve the article data
-
 const db = require("../models");
 const axios = require("axios");
 const cheerio = require("cheerio");
