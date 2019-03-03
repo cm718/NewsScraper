@@ -7,7 +7,7 @@ const cheerio = require("cheerio");
 module.exports = function (app) {
 
   // When you visit this route, the server will scrape data from the site and save to mongo
-  app.get("/scrape", function (req, res) {
+  app.get("/api/scrape", function (req, res) {
     console.log("running scrape");
 
     // Make an axios call to the website
@@ -43,7 +43,7 @@ module.exports = function (app) {
   });
 
   // Route to retrieve data from mongo and display it
-  app.get("/all", function (req, res) {
+  app.get("/api/all", function (req, res) {
     console.log("running to retrieve all the articles");
     // Query the mongodb for my scraped data and return it as json object
     db.Article.find({}, function (error, articles) {
@@ -59,7 +59,7 @@ module.exports = function (app) {
   });
 
   // Route to retrieve data from mongo and display it
-  app.get("/saved", function (req, res) {
+  app.get("/api/saved", function (req, res) {
     console.log("running to retrieve all the saved articles");
     // Query the mongodb for my scraped data and return it as json object
     db.Article.find({saved: true}, function (error, savedArticles) {
@@ -69,6 +69,23 @@ module.exports = function (app) {
       }
       // Send the result to the browser
       else {
+        res.json(savedArticles);
+      }
+    });
+  });
+
+  app.put("/api/saved", function (req, res) {
+    console.log("running to retrieve all the saved articles");
+    console.log(req.body.id);
+    // Query the mongodb for my scraped data and return it as json object
+    db.Article.findOneAndUpdate({_id: req.body.id}, {saved: req.body.saved}, function (error, savedArticles) {
+      // Log any errors 
+      if (error) {
+        console.log(error);
+      }
+      // Send the result to the browser
+      else {
+        console.log(savedArticles);
         res.json(savedArticles);
       }
     });
