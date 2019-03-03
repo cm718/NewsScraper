@@ -21,15 +21,29 @@ button {
     color: #fff;
     padding: 20px;
     margin: 20px;
-    font-size: .8em;
+    font-size: 1em;
     margin-top: 20px;
     border-radius: 5px;
+    width: 175px;
 }
 
-.saveButtonColor {
-    border-color: #fff;
+.saved {
+    border: 3px solid #fff;
     color: #fff;
     background: red;
+    border-radius: 5px;
+    width: 75px;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.notSaved {
+    border: 3px solid #fff;
+    color: #fff;
+    border-radius: 5px;
+    width: 75px;
+    padding: 10px 20px;
+    margin-top: 10px;
 }
 
 hr {
