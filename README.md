@@ -1,5 +1,5 @@
 # NewsScraper
-Article scraper to grab news articles. The user can save articles and comment on them as well. 
+Article scraper to grab news articles. The user can save articles and comment on them as well. Click the link at the top of the page to visit the Heroku deployed site.
 
 ## Dependencies
 The package dependencies needed for the app to run are: Axios, Cheerio, Express, Handlebars, and Mongoose
