@@ -74,6 +74,10 @@ hr {
     box-shadow: 3px 4px 3px 0 #999;
 }
 
+.center {
+    text-align: center;
+}
+
 a {
     font-weight: 200;
     padding: 20px 10px;
